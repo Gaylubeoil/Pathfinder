@@ -30,7 +30,7 @@ This is a custom Breadth-First Search (BFS) pathfinder application built using S
 2. Build the application:
 
     ```shell
-    g++ main.cpp -o pathfinder -lsfml-graphics -lsfml-window -lsfml-system
+    g++ *.cpp -o pathfinder -lsfml-graphics -lsfml-window -lsfml-system
     ```
 
 3. Run the application:
