@@ -9,6 +9,8 @@ Application::Application()
       statistics_num_frames(0)
 {
     font.loadFromFile("../Fonts/Sansation.ttf");
+    editor.set_font(&font);
+
     statistics_text.setFont(font);
     statistics_text.setCharacterSize(10);
     statistics_text.setPosition(760, 5);

@@ -2,7 +2,14 @@
 #define UTILITY_H
 #include <cstdlib>
 #include <string>
+#include <sstream>
 
-std::string to_string(std::size_t num);
+template <typename T>
+std::string to_string(T num)
+{
+    std::stringstream ss;
+    ss << num;
+    return ss.str();
+}
 
 #endif // UTILITY_H

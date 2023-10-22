@@ -14,27 +14,26 @@ class Application : private sf::NonCopyable
 public:
     Application();
     ~Application() = default;
-    
-    void                    run();
+
+    void run();
 
 private:
-    void                    update(sf::Time dt);
-    void                    render();
-    void                    process_input();
+    void update(sf::Time dt);
+    void render();
+    void process_input();
 
-    void                    update_statistics(sf::Time dt);
+    void update_statistics(sf::Time dt);
 
 private:
-    static const sf::Time   TIME_PER_FRAME;
-    sf::RenderWindow        window;
+    static const sf::Time TIME_PER_FRAME;
+    sf::RenderWindow window;
+    sf::Font font;
 
-    Editor                  editor;
+    Editor editor;
 
-    sf::Text                statistics_text;
-    sf::Time                statistics_update_time;
-    std::size_t             statistics_num_frames;
-
-    sf::Font                font;
+    sf::Text statistics_text;
+    sf::Time statistics_update_time;
+    std::size_t statistics_num_frames;
 };
 
 #endif // APPLICATION_H

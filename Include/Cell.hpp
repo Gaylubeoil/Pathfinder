@@ -1,7 +1,7 @@
 #if !defined(NODE_H)
 #define NODE_H
 
-#define NUM_CELLS 60
+#define NUM_CELLS 20
 #define CELL_SIZE (600 / NUM_CELLS)
 
 #include <SFML/Graphics.hpp>

@@ -2,7 +2,8 @@
 
 Maze::Maze()
     : cells(), start_cell(nullptr), end_cell(nullptr), current_path(nullptr),
-      m_solve(false), path_found(false), not_solvable(false)
+      m_solve(false), path_found(false), not_solvable(false), finish(false),
+      steps(0)
 {
     initialize_maze();
 }
@@ -62,7 +63,7 @@ void Maze::solve_maze()
         int x = pos.x + pair.first;
         int y = pos.y + pair.second;
 
-        if (x < 0 || x > NUM_CELLS || y < 0 || y > NUM_CELLS)
+        if (x < 0 || x >= NUM_CELLS || y < 0 || y >= NUM_CELLS)
             continue;
 
         Cell &temp = cells[x][y];
@@ -70,6 +71,7 @@ void Maze::solve_maze()
         {
             current_path = current;
             path_found = true;
+            finish = true;
             return;
         }
         else if (temp.get_type() == Cell::Empty)
@@ -143,11 +145,20 @@ void Maze::reset()
         nodes.pop();
 }
 
+bool Maze::finished() const { return finish; }
+
+std::size_t Maze::get_steps() const
+{
+    if (finish)
+        return steps;
+    else
+        return 0;
+}
+
 sf::Vector2i Maze::get_cellpos(const Cell &cell) const
 {
     sf::Vector2i pos = static_cast<sf::Vector2i>(cell.getPosition());
-    pos /= CELL_SIZE;
-    return pos;
+    return pos /= CELL_SIZE;
 }
 
 Maze::~Maze()

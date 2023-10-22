@@ -21,6 +21,9 @@ public:
 
     Cell &get_cell(int x, int y);
 
+    bool finished() const;
+    std::size_t get_steps() const;
+
     void start();
     void reset();
 
@@ -44,6 +47,7 @@ private:
     bool m_solve = false;
     bool path_found = false;
     bool not_solvable = false;
+    bool finish = false;
 
     std::size_t steps = 0;
 };
