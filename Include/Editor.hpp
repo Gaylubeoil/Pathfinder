@@ -20,6 +20,8 @@ private:
     // @brief  Tells us whether or not the mouse is within the maze's size.
     bool valid_mouse_pos(const sf::Vector2i &pos) const;
 
+    void set_cell_state(Cell::CellType type);
+
 private:
     sf::RenderWindow &target;
     Maze maze;

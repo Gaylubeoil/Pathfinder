@@ -11,7 +11,8 @@ Application::Application()
     font.loadFromFile("../Fonts/Sansation.ttf");
     statistics_text.setFont(font);
     statistics_text.setCharacterSize(10);
-    statistics_text.setPosition(6, 6);
+    statistics_text.setPosition(760, 5);
+    window.setKeyRepeatEnabled(false);
 }
 
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.f / 60.f);
